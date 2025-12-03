@@ -17,7 +17,8 @@
     "jsonpath-plus": "^10.0.7",
     "cron-parser": "^4.9.0",
     "js-yaml": "4.1.0",
-    "diff": "^5.1.0"
+    "diff": "^5.1.0",
+    "marked": "15.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

@@ -17,6 +17,7 @@ import { DockerTool } from './views/DockerTool';
 import { CurlConverter } from './views/CurlConverter';
 import { UrlParser } from './views/UrlParser';
 import { HttpStatus } from './views/HttpStatus';
+import { MarkdownPreview } from './views/MarkdownPreview';
 
 function App() {
   const [activeTool, setActiveTool] = useState<ToolType>(ToolType.JSON_TOOLS);
@@ -36,6 +37,8 @@ function App() {
         return <RegexTester />;
       case ToolType.SQL_TOOLS:
         return <SqlTools />;
+      case ToolType.MARKDOWN_PREVIEW:
+        return <MarkdownPreview />;
       case ToolType.DOCKERFILE_GENERATOR:
         return <DockerTool />;
       case ToolType.CHMOD_CALCULATOR:

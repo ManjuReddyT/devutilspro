@@ -6,7 +6,7 @@ const geminiAi = new GoogleGenAI({ apiKey });
 
 // Default Config
 let currentConfig: AiConfig = {
-  provider: 'gemini',
+  provider: 'ollama', // Changed default to Ollama
   ollamaUrl: 'http://localhost:11434',
   ollamaModel: 'llama3'
 };

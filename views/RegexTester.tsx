@@ -1,5 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { MagnifyingGlassIcon, BookOpenIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, BookOpenIcon, ExclamationTriangleIcon, LightBulbIcon } from '@heroicons/react/24/outline';
+
+const EXAMPLES = [
+  { name: 'Email Address', regex: '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}', text: 'test@example.com\ninvalid.email\nhello.world@sub.domain.co.uk' },
+  { name: 'IPv4 Address', regex: '\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b', text: '192.168.1.1\n10.0.0.1\n256.0.0.1\n127.0.0.1' },
+  { name: 'Date (YYYY-MM-DD)', regex: '\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])', text: '2023-10-05\n2024-02-29\n2023-13-01' },
+  { name: 'URL / Website', regex: 'https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)', text: 'https://www.google.com\nhttp://example.org/path?q=123\nftp://invalid-protocol.com' },
+  { name: 'Phone Number (US)', regex: '\\(?\\d{3}\\)?[-\\s.]?\\d{3}[-\\s.]?\\d{4}', text: '(555) 123-4567\n555-123-4567\n555.123.4567' },
+  { name: 'Hex Color', regex: '#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})', text: '#fff\n#4F46E5\n#000000' }
+];
 
 const CHEATSHEET = [
   { label: 'Character Classes', items: [
@@ -196,11 +205,6 @@ export const RegexTester: React.FC = () => {
                className="absolute inset-0 p-4 font-mono text-sm leading-relaxed whitespace-pre-wrap overflow-auto z-10 pointer-events-none text-transparent"
                aria-hidden="true"
              >
-                {/* 
-                  This div is just for sizing/scroll sync. 
-                  The DangerouslySetInnerHTML below creates the visuals. 
-                  We render transparent text to keep spacing identical. 
-                */}
                 {testString}
              </div>
 
@@ -222,7 +226,7 @@ export const RegexTester: React.FC = () => {
         {/* Sidebar */}
         <div className="flex-1 flex flex-col gap-4 min-h-0">
            {/* Match Info */}
-           <div className="flex-1 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col overflow-hidden">
+           <div className="flex-1 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col overflow-hidden min-h-0">
              <div className="p-3 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50">
                <h3 className="font-bold text-slate-700 dark:text-slate-300 text-sm flex items-center gap-2">
                  <MagnifyingGlassIcon className="w-4 h-4" /> Match Information
@@ -257,8 +261,32 @@ export const RegexTester: React.FC = () => {
              </div>
            </div>
 
+           {/* Examples */}
+           <div className="h-40 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col overflow-hidden shrink-0">
+              <div className="p-3 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50">
+               <h3 className="font-bold text-slate-700 dark:text-slate-300 text-sm flex items-center gap-2">
+                 <LightBulbIcon className="w-4 h-4" /> Common Patterns
+               </h3>
+             </div>
+             <div className="flex-1 overflow-y-auto p-2 custom-scrollbar">
+                {EXAMPLES.map((item, i) => (
+                  <div 
+                    key={i} 
+                    className="flex justify-between px-2 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-700/50 rounded cursor-pointer text-xs group transition-colors"
+                    onClick={() => {
+                        setRegexStr(item.regex);
+                        setTestString(item.text);
+                    }}
+                  >
+                     <span className="font-medium text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">{item.name}</span>
+                     <span className="text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-900 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 group-hover:border-indigo-200 dark:group-hover:border-indigo-800">Load</span>
+                  </div>
+                ))}
+             </div>
+           </div>
+
            {/* Quick Ref */}
-           <div className="h-64 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col overflow-hidden">
+           <div className="h-56 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col overflow-hidden shrink-0">
               <div className="p-3 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50">
                <h3 className="font-bold text-slate-700 dark:text-slate-300 text-sm flex items-center gap-2">
                  <BookOpenIcon className="w-4 h-4" /> Quick Reference

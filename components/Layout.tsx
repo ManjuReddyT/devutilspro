@@ -17,7 +17,8 @@ import {
   ServerStackIcon,
   MagnifyingGlassIcon,
   GlobeAltIcon,
-  SignalIcon
+  SignalIcon,
+  EyeIcon
 } from '@heroicons/react/24/outline';
 
 interface LayoutProps {
@@ -34,6 +35,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: ToolType.JWT_DEBUGGER, label: 'JWT Debugger', icon: <ShieldCheckIcon className="w-5 h-5" />, description: 'Decode & Analyze Tokens' },
   { id: ToolType.REGEX_TESTER, label: 'Regex Tester', icon: <MagnifyingGlassIcon className="w-5 h-5" />, description: 'Test & Debug Patterns' },
   { id: ToolType.SQL_TOOLS, label: 'SQL Tools', icon: <TableCellsIcon className="w-5 h-5" />, description: 'Format, Generate & Explain' },
+  { id: ToolType.MARKDOWN_PREVIEW, label: 'Markdown View', icon: <EyeIcon className="w-5 h-5" />, description: 'Edit & Live Preview' },
   { id: ToolType.DOCKERFILE_GENERATOR, label: 'Dockerfile Gen', icon: <ServerStackIcon className="w-5 h-5" />, description: 'AI Generator' },
   { id: ToolType.CURL_CONVERTER, label: 'Curl Converter', icon: <CommandLineIcon className="w-5 h-5" />, description: 'Curl to Fetch/Axios/Python' },
   { id: ToolType.URL_PARSER, label: 'URL Parser', icon: <GlobeAltIcon className="w-5 h-5" />, description: 'Builder & Params Editor' },
@@ -141,11 +143,11 @@ export const Layout: React.FC<LayoutProps> = ({ activeTool, onToolChange, onOpen
         <div className="p-4 border-t border-slate-800">
           {isSidebarOpen ? (
             <div className="flex flex-col gap-1">
-              <div className="text-xs text-center opacity-50">v1.6.0 • Powered by Gemini</div>
+              <div className="text-xs text-center opacity-50">v1.7.0 • Local First</div>
               <div className="text-[10px] text-center text-slate-500 font-mono">Cmd + K to search</div>
             </div>
           ) : (
-             <div className="text-xs text-center opacity-50">v1.6</div>
+             <div className="text-xs text-center opacity-50">v1.7</div>
           )}
         </div>
       </aside>
