@@ -63,6 +63,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: ToolType.STRING_CASE_CONVERTER, label: 'Case Converter', icon: <LanguageIcon className="w-5 h-5" />, description: 'String Case Tools' },
   { id: ToolType.HAR_VIEWER, label: 'HAR Viewer', icon: <GlobeAltIcon className="w-5 h-5" />, description: 'HTTP Archive' },
   { id: ToolType.UUID_GENERATOR, label: 'UUID & Key Gen', icon: <IdentificationIcon className="w-5 h-5" />, description: 'UUIDs & Secure Keys' },
+  { id: ToolType.EDITOR, label: 'EDITOR', icon: <DocumentTextIcon className="w-5 h-5" />, description: 'Bulk Text Processor & Utilities' },
 ];
 
 export const Layout: React.FC<LayoutProps> = ({ activeTool, onToolChange, onOpenSettings, children }) => {

@@ -27,6 +27,7 @@ import { RestApiClient } from './views/RestApiClient';
 import { CaseConverter } from './views/CaseConverter';
 import { HarViewer } from './views/HarViewer';
 import { UuidGenerator } from './views/UuidGenerator';
+import { EditorTool } from './views/EditorTool';
 
 function App() {
   const [activeTool, setActiveTool] = useState<ToolType>(ToolType.JSON_TOOLS);
@@ -84,6 +85,8 @@ function App() {
         return <HarViewer />;
       case ToolType.UUID_GENERATOR:
         return <UuidGenerator />;
+      case ToolType.EDITOR:
+        return <EditorTool />;
       default:
         return <JsonTools />;
     }

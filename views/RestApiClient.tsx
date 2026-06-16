@@ -404,7 +404,7 @@ export const RestApiClient: React.FC = () => {
       </div>
 
       <div className="h-[calc(100%-80px)] min-h-[500px]">
-        <PanelGroup direction={isMobile ? "vertical" : "horizontal"} className={`flex gap-2 ${isMobile ? 'flex-col' : ''}`}>
+        <PanelGroup orientation={isMobile ? "vertical" : "horizontal"} className={`flex gap-2 ${isMobile ? 'flex-col' : ''}`}>
           {/* Request Config */}
           <Panel defaultSize={50} minSize={20} className="w-full flex flex-col bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden h-full">
           <div className="flex bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700 px-2 pt-2">
