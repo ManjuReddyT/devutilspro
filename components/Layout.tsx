@@ -18,7 +18,16 @@ import {
   MagnifyingGlassIcon,
   GlobeAltIcon,
   SignalIcon,
-  EyeIcon
+  EyeIcon,
+  QrCodeIcon,
+  CalculatorIcon,
+  FingerPrintIcon,
+  SwatchIcon,
+  DocumentMagnifyingGlassIcon,
+  RocketLaunchIcon,
+  LanguageIcon,
+  KeyIcon,
+  IdentificationIcon
 } from '@heroicons/react/24/outline';
 
 interface LayoutProps {
@@ -45,6 +54,15 @@ const NAV_ITEMS: NavItem[] = [
   { id: ToolType.URL_ENCODER, label: 'URL Encoder', icon: <LinkIcon className="w-5 h-5" />, description: 'Escape & Unescape' },
   { id: ToolType.EPOCH, label: 'Epoch Converter', icon: <ClockIcon className="w-5 h-5" />, description: 'Timestamps & Dates' },
   { id: ToolType.CRON, label: 'Cron Guru', icon: <CalendarDaysIcon className="w-5 h-5" />, description: 'Schedule Editor & AI' },
+  { id: ToolType.QR_CODE_GENERATOR, label: 'QR Code', icon: <QrCodeIcon className="w-5 h-5" />, description: 'Generator & Downloader' },
+  { id: ToolType.UNIT_CONVERTER, label: 'Unit Converter', icon: <CalculatorIcon className="w-5 h-5" />, description: 'Data & Time' },
+  { id: ToolType.HASH_GENERATOR, label: 'Hash Generator', icon: <FingerPrintIcon className="w-5 h-5" />, description: 'MD5, SHA-1, SHA-2' },
+  { id: ToolType.COLOR_CONVERTER, label: 'Color Converter', icon: <SwatchIcon className="w-5 h-5" />, description: 'HEX, RGB, HSL, CMYK' },
+  { id: ToolType.TEXT_DIFF, label: 'Text Diff Viewer', icon: <DocumentMagnifyingGlassIcon className="w-5 h-5" />, description: 'Compare texts' },
+  { id: ToolType.REST_API_CLIENT, label: 'API Client', icon: <RocketLaunchIcon className="w-5 h-5" />, description: 'REST requests' },
+  { id: ToolType.STRING_CASE_CONVERTER, label: 'Case Converter', icon: <LanguageIcon className="w-5 h-5" />, description: 'String Case Tools' },
+  { id: ToolType.HAR_VIEWER, label: 'HAR Viewer', icon: <GlobeAltIcon className="w-5 h-5" />, description: 'HTTP Archive' },
+  { id: ToolType.UUID_GENERATOR, label: 'UUID & Key Gen', icon: <IdentificationIcon className="w-5 h-5" />, description: 'UUIDs & Secure Keys' },
 ];
 
 export const Layout: React.FC<LayoutProps> = ({ activeTool, onToolChange, onOpenSettings, children }) => {
